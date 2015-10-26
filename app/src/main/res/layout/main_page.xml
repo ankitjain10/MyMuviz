@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"></include>
+
+    <LinearLayout
+        android:layout_below="@id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <it.neokree.materialtabs.MaterialTabHost
+                    android:id="@+id/materialTabHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/app_bar"
+                    android:alpha="0.8"
+                    app:accentColor="@color/colorAccent"
+                    app:hasIcons="true"
+                    app:primaryColor="@color/colorPrimary" />
+
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <fragment
+                android:id="@+id/mainPageDrawerFragment"
+                android:name="com.example.dell.mymuviz.NavigationDrawerFragement"
+                android:layout_width="@dimen/nav_drawer_width"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                tools:layout="@layout/fragment_navigationdrawer" />
+
+        </android.support.v4.widget.DrawerLayout>
+    </LinearLayout>
+</RelativeLayout>
